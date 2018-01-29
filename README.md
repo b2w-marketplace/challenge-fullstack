@@ -36,3 +36,12 @@ Seja criativo 😉
 Crie um Fork desse repositório e nos envie um **pull request**
 
 Não esqueça de nos ensinar rodar seu projeto no seu arquivo README.md :sunglasses:
+
+
+
+
+Para executar o projeto:
+
+1 - Importar o projeto maven: desafiob2w.
+2 - Executar a classe App.java;
+3 - Acessar no browser: http://localhost:8080/perfil

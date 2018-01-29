@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: desafiob2w
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: br.com.albuquerque.alexandre
+Build-Jdk: 1.6.0_34
+Built-By: alexa
+Created-By: Maven Integration for Eclipse
+
