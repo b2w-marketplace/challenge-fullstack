@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+
+<style>
+.losango {
+	width: 170px;
+	height: 170px;
+	background: #FFFFFF;
+	margin-top: 80px;
+	margin-left: 80px;
+	/* Rotação */
+	transform: rotate(-45deg);
+}
+
+.principal-left {
+	background: #363636;
+	width: 30%;
+	height: 100%;
+}
+
+.principal-right {
+	width: 70%;
+	height: 100%;
+	position: relative;
+}
+
+.nome {
+	color: #FFFFFF;
+	padding-left: 15%;
+	font-weight: bold;
+}
+
+.textW {
+	color: #FFFFFF;
+}
+
+.texto16w {
+	color: #FFFFFF;
+	font-size: 16px;
+	padding-left: 30%;
+}
+
+.textow30pl {
+	color: #FFFFFF;
+	padding-left: 30%;
+}
+
+.texto10pl {
+	padding-left: 10%;
+}
+
+.textow10pad {
+	color: #FFFFFF;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.separador {
+	width: 100%;
+	border-top: 1px solid #FFFFFF;
+	list-style-type: none;
+}
+
+.separador50P20L {
+	margin-left: 20%;
+	width: 50%;
+	border-top: 1px solid #FFFFFF;
+	list-style-type: none;
+}
+
+.separador50P10L {
+	margin-left: 10%;
+	width: 50%;
+	border-top: 1px solid;
+	list-style-type: none;
+}
+</style>
+
+<title>Perfil</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous" />
+
+</head>
+<body>
+	<div class="row">
+		<div class="principal-left">
+			<div class="row" style="padding-left: 10%">
+				<div class="losango">
+					<img
+						src="https://raw.githubusercontent.com/b2w-marketplace/code-challenge/master/files/avatar-dev.png"
+						class="img-fluid" alt="Image"
+						style="transform: rotate(+45deg); left: 19%; top: 15%; position: relative" />
+				</div>
+			</div>
+
+			<br /> <br />
+
+			<div class="container">
+				<h1>
+					<output th:text="${perfil.name}" class="nome" />
+				</h1>
+
+				<output th:text="${perfil.profession}" class="texto16w" />
+
+				<br /> <br />
+
+				<div class="separador" />
+
+				<br />
+
+				<h3>
+					<output class="textow30pl"> PROFILE </output>
+				</h3>
+
+				<div class="separador50P20L" />
+
+				<br />
+
+				<output th:text="${perfil.description}" class="textow10pad" />
+
+				<br /> <br /> <br />
+
+				<h3>
+					<output class="textow30pl"> CONTACT </output>
+				</h3>
+
+				<div class="separador50P20L" />
+
+				<br />
+
+				<output th:text="${perfil.contact.tel}" class="textow10pad" />
+				<br />
+				<output th:text="${perfil.contact.cel}" class="textow10pad" />
+
+				<br /> <br />
+				<output th:text="${perfil.contact.address}" class="textow10pad" />
+
+				<br /> <br />
+				<output th:text="${perfil.contact.website}" class="textow10pad" />
+				<output th:text="${perfil.contact.mail}" class="textow10pad" />
+
+				<br /> <br /> <br />
+
+				<h3>
+					<output class="textow30pl"> SKILLS </output>
+				</h3>
+
+				<div class="separador50P20L" />
+
+				<br />
+
+				<output th:text="${perfil.skills[0].name}" class="textow30pl" />
+				<output th:text="${perfil.skills[0].value}" class="textow30pl" />
+				<output class="textW">% </output>
+
+				<br />
+				<div style="padding-left: 5%">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" 
+							aria-valuemin="0" aria-valuemax="100" style="width: 80%;" />
+					</div>
+				</div>
+
+				<output th:text="${perfil.skills[1].name}" class="textow30pl" />
+				<output th:text="${perfil.skills[1].value}" class="textow30pl" />
+				<output class="textW">% </output>
+				<br />
+				<div style="padding-left: 5%">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" 
+							aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+							style="width: 90%" />
+					</div>
+				</div>
+
+				<output th:text="${perfil.skills[2].name}" class="textow30pl" />
+				<output th:text="${perfil.skills[2].value}" class="textow30pl" />
+				<output class="textW">% </output>
+
+				<br />
+				<div style="padding-left: 5%">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" 
+							aria-valuemin="0" aria-valuemax="100" style="width: 75%" />
+					</div>
+				</div>
+
+				<br />
+			</div>
+		</div>
+
+
+
+		<div class="principal-right">
+
+			<br /> <br />
+			<h3>
+				<output class="texto10pl"> WORK EXPERIENCE </output>
+			</h3>
+
+			<div class="separador50P10L" />
+
+			<br />
+			<dl th:each="experience : ${perfil.experience}">
+				<output th:text="${experience.name}" class="texto10pl"
+					style="font-weight: bold;" />
+				<br />
+				<output th:text="${experience.date}" class="texto10pl" />
+				<br />
+				<output th:text="${experience.description}" class="texto10pl"
+					style="padding-right: 10%" />
+			</dl>
+
+			<br /> <br /> <br />
+
+			<h3>
+				<output class="texto10pl"> EDUCATION </output>
+			</h3>
+
+			<div class="separador50P10L" />
+
+			<br />
+			<dl th:each="education : ${perfil.education}">
+				<output th:text="${education.name}" class="texto10pl"
+					style="font-weight: bold;" />
+				<br />
+				<output th:text="${education.date}" class="texto10pl" />
+				<br />
+				<output th:text="${education.description}" class="texto10pl"
+					style="padding-right: 10%" />
+			</dl>
+
+		</div>
+	</div>
+
+</body>
+</html>
